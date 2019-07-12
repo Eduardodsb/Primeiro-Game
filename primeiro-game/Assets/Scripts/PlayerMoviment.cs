@@ -14,7 +14,7 @@ public class PlayerMoviment : MonoBehaviour{
     void Start(){
         Debug.Log("Iniciando");
         rb.useGravity = true;
-        rb.AddForce(0, 100, 0);
+        rb.AddForce(0, 0, 0);
     }
 
     //É chamado a cada frame produzido.
@@ -25,13 +25,14 @@ public class PlayerMoviment : MonoBehaviour{
 
     private void FixedUpdate(){
         if(Input.GetKey("a")){
-            rb.AddForce(-lateralForce * Time.deltaTime, 0, 0);
+            rb.AddForce(-lateralForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
         if (Input.GetKey("d")){
-            rb.AddForce(lateralForce * Time.deltaTime, 0, 0);
+            rb.AddForce(lateralForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
-        if (Input.GetKey(KeyCode.Space) && player.position.y <= 0.55){
-            rb.AddForce(0, jumpForce * Time.deltaTime, 0);
+        if (Input.GetKey(KeyCode.Space) && player.position.y <= 0.55 && player.position.y > 0.45)
+        {
+            rb.AddForce(0, jumpForce * Time.deltaTime, 0, ForceMode.VelocityChange);
         }
 
     }
