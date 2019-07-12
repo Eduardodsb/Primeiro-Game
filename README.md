@@ -1,2 +1,2 @@
 # Primeiro-Game
-Projeto para o processo seletivo da GDP
+Projeto para o processo seletivo da GDP.
