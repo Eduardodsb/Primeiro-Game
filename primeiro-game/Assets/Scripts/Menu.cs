@@ -4,9 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour{
+
+    public AudioSource audio;
+
+
     // Start is called before the first frame update
     void Start(){
-        
+        // Este método impede que o objeto 
+        // atual seja destruido durante o carregamento.
+        DontDestroyOnLoad(audio);
     }
 
     // Update is called once per frame
