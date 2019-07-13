@@ -27,12 +27,17 @@ public class PlayerMoviment : MonoBehaviour{
         if(Input.GetKey("a")){
             rb.AddForce(-lateralForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
+
         if (Input.GetKey("d")){
             rb.AddForce(lateralForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
-        if (Input.GetKey(KeyCode.Space) && player.position.y <= 0.55 && player.position.y > 0.45)
-        {
+
+        if (Input.GetKey(KeyCode.Space) && player.position.y <= 0.55 && player.position.y > 0.45){
             rb.AddForce(0, jumpForce * Time.deltaTime, 0, ForceMode.VelocityChange);
+        }
+
+        if(rb.position.y < -1.0){
+            FindObjectOfType<GameManager>().EndGame();
         }
 
     }
