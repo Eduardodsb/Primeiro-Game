@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour{
 
     bool gameover = false;
     public float restartdelay = 1f;
+    public GameObject completeLevelUI;
+
+
     // Start is called before the first frame update
     void Start(){
         
@@ -27,5 +30,10 @@ public class GameManager : MonoBehaviour{
 
     void Restart(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void CompleteLevel(){
+        gameover = true;
+        completeLevelUI.SetActive(true);
     }
 }
