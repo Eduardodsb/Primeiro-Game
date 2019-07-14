@@ -23,4 +23,13 @@ public class Menu : MonoBehaviour{
     public void StartGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void MuteSound(){
+        
+        if(audio.mute == false){
+            audio.mute = true;
+        }else{
+            audio.mute = false;
+        }
+    }
 }
