@@ -24,6 +24,10 @@ public class Menu : MonoBehaviour{
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void Quit(){
+        Application.Quit();
+    }
+
     public void MuteSound(){
         
         if(audio.mute == false){
@@ -32,4 +36,5 @@ public class Menu : MonoBehaviour{
             audio.mute = false;
         }
     }
+
 }
