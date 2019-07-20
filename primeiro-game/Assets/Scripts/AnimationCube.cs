@@ -6,7 +6,7 @@ public class AnimationCube : MonoBehaviour{
 
     public Transform MovableCube;
     public Rigidbody rb;
-    public float lateralForce;
+    public Vector3 velocidade;
 
     // Start is called before the first frame update
     void Start(){
@@ -15,11 +15,12 @@ public class AnimationCube : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
-        if(MovableCube.position.x <= -4.0 ){
-            rb.AddForce(lateralForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-        }
-        if (MovableCube.position.x >= 4.0){
-            rb.AddForce(-lateralForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+        if (MovableCube.position.x <= -4.0) {
+            rb.velocity = velocidade;
+        } else if (MovableCube.position.x >= 4.0) {
+            rb.velocity = -velocidade;
+        } else if (rb.velocity.x == 0.0 ) { 
+            rb.velocity = velocidade;
         }
     }
 }
