@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour{
 
     public AudioSource audio;
+    public AudioSource audioEffect;
 
 
     // Start is called before the first frame update
@@ -13,6 +14,7 @@ public class Menu : MonoBehaviour{
         // Este método impede que o objeto 
         // atual seja destruido durante o carregamento.
         DontDestroyOnLoad(audio);
+        DontDestroyOnLoad(audioEffect);
     }
 
     // Update is called once per frame
@@ -29,12 +31,19 @@ public class Menu : MonoBehaviour{
     }
 
     public void MuteSound(){
-        
-        if(audio.mute == false){
-            audio.mute = true;
+        if (AudioListener.volume == 0){
+            AudioListener.volume = 1;
         }else{
-            audio.mute = false;
+            AudioListener.volume = 0;
         }
-    }
+            /* 
+             if(audio.mute == false){
+                 audioEffect.mute = true;
+                 audio.mute = true;
+             }else{
+                 audio.mute = false;
+                 audioEffect.mute = false;
+             }*/
+        }
 
 }

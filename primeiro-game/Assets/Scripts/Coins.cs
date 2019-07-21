@@ -5,12 +5,12 @@ using UnityEngine;
 public class Coins : MonoBehaviour{
 
     public Score score;
-    public AudioSource audio;
+    public GameObject audioEffect;
 
     // Start is called before the first frame update
     void Start(){
        score = FindObjectOfType<Score>();
-       audio = FindObjectOfType<AudioSource>();
+        audioEffect = GameObject.Find("SoundEffect");
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class Coins : MonoBehaviour{
     }
 
     void OnTriggerEnter(){
-        audio.Play();
+        audioEffect.GetComponent<AudioSource>().Play();
         gameObject.SetActive(false);
         score.addCoins();
     }
