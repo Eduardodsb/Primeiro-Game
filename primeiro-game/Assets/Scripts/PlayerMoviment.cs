@@ -19,7 +19,6 @@ public class PlayerMoviment : MonoBehaviour{
 
     //É chamado a cada frame produzido.
     void Update(){
-        Debug.Log(rb.velocity.z);
         if (rb.velocity.z < 45){
             rb.AddForce(0, 0, force * Time.deltaTime); //Time.deltaTime serve para manter a proporção de acordo com a variação dos frames produzidos(Se baseando no time do último frame).
         }
